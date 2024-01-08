@@ -33,7 +33,7 @@ static int	count(char const *s, char c)
 	return (r);
 }
 
-static int	shwiya(char const *s, char c)
+static int	ft_word(char const *s, char c)
 {
 	int	word;
 	int	i;
@@ -81,18 +81,18 @@ char	**ft_split(char const *s, char c)
 	if (s == 0)
 		return (NULL);
 	res = malloc((count(s, c) + 1) * sizeof(char *));
-	if (res == 0)
-		return (ft_free(res));
+	if (res == NULL)
+		return (NULL);
 	while (*s)
 	{
 		while (*s == c)
 			s++;
 		if (*s)
 		{
-			res[j] = ft_substr(s, 0, shwiya(s, c));
+			res[j] = ft_substr(s, 0, ft_word(s, c));
 			if (!res[j])
 				return (ft_free(res));
-			s += shwiya(s, c);
+			s += ft_word(s, c);
 			j++;
 		}
 	}
