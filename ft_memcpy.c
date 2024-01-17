@@ -20,7 +20,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	if (!dst && !src)
 		return (0);
 	if (dst == src && n <= ft_strlen(src))
-		return (src);
+		return (dst);
 	while (n != 0)
 	{
 		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
